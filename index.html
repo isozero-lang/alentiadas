@@ -13,16 +13,9 @@
 
     <style>
         :root {
-            --bg-main: #f8fafc;
-            --bg-card: #ffffff;
-            --primary: #ca8a04;
-            --secondary: #1d4ed8;
-            --accent: #15803d;
-            --text: #0f172a;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --danger: #ef4444;
-            --joker: #db2777;
+            --bg-main: #f8fafc; --bg-card: #ffffff; --primary: #ca8a04; --secondary: #1d4ed8; 
+            --accent: #15803d; --text: #0f172a; --text-muted: #64748b; --border: #e2e8f0; 
+            --danger: #ef4444; --joker: #db2777;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -38,8 +31,9 @@
         header h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; color: #fff; font-size: 26px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
         header .subtitle { font-size: 13px; color: #fde047; text-transform: uppercase; margin-top: 5px; font-family: 'Montserrat'; font-weight: 800; letter-spacing: 2px; }
 
+        #connection_status { position: absolute; top: 20px; left: 20px; font-size: 10px; color: white; background: #eab308; padding: 4px 10px; border-radius: 12px; font-family: 'Montserrat'; font-weight: 900; text-transform: uppercase; }
+
         .container { padding: 0 16px; }
-        
         .nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
         .btn-nav { padding: 14px; border-radius: 12px; border: none; font-family: 'Montserrat'; font-weight: 800; font-size: 11px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .btn-blue { background: var(--secondary); color: white; }
@@ -99,6 +93,7 @@
 <body>
 
     <header>
+        <div id="connection_status">🟡 A Ligar...</div>
         <div id="badge_admin" class="admin-only" style="position:absolute; top:20px; right:20px; background:var(--danger); color:white; padding:4px 10px; border-radius:6px; font-family:'Montserrat'; font-size:10px; font-weight:900;">ADMIN</div>
         <h1>Grandes Alentíadas</h1>
         <div class="subtitle">De Verão 2026</div>
@@ -178,20 +173,17 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <script>
-        // INTEGRAÇÃO DAS TUAS CHAVES REAIS DO FIREBASE
+        // -----------------------------------------------------------
+        // CONFIGURAÇÃO FIREBASE
+        // SUBSTITUI O URL ABAIXO PELO QUE ESTÁ NO TEU FIREBASE (SEPARADOR "DATA")
+        // -----------------------------------------------------------
         const firebaseConfig = {
             apiKey: "AIzaSyDvR4SLU4hPnNu2mHYtaNV2RKc0F8SE1-w",
             authDomain: "alentiadas-de-verao-2026.firebaseapp.com",
-            databaseURL: "https://alentiadas-de-verao-2026-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "alentiadas-de-verao-2026",
-            storageBucket: "alentiadas-de-verao-2026.firebasestorage.app",
-            messagingSenderId: "837106747078",
-            appId: "1:837106747078:web:26756f7db700acfb1ef9c7",
-            measurementId: "G-W68D8RZWGN"
+            databaseURL: "https://alentiadas-de-verao-2026-default-rtdb.europe-west1.firebasedatabase.app/", 
+            projectId: "alentiadas-de-verao-2026"
         };
-        
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.database();
+        // -----------------------------------------------------------
 
         const cats = [
             { id: "alem", name: "📸 Alembraduras", min: 2, games: [
@@ -235,7 +227,26 @@
 
         if(isAdmin) document.body.classList.add('admin-mode');
 
-        // CORRIGIDO: Lógica robusta que inicializa se o Firebase retornar vazio
+        // FORÇA O DESENHO DA APP IMEDIATAMENTE (MESMO SEM FIREBASE)
+        updateUI();
+
+        // INICIAR FIREBASE
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        const connStatus = document.getElementById('connection_status');
+
+        // VERIFICAR LIGAÇÃO À INTERNET/SERVIDOR
+        db.ref('.info/connected').on('value', function(snap) {
+            if (snap.val() === true) {
+                connStatus.innerText = "🟢 Online";
+                connStatus.style.background = "#15803d";
+            } else {
+                connStatus.innerText = "🔴 Offline";
+                connStatus.style.background = "#ef4444";
+            }
+        });
+
+        // LER DADOS (COM ALERTA SE AS REGRAS ESTIVEREM FECHADAS)
         db.ref('alentiadas2026').on('value', snap => {
             const val = snap.val();
             if(val) {
@@ -243,10 +254,10 @@
                 if(!state.matches) state.matches = {};
                 if(!state.history) state.history = [];
                 if(!state.names) state.names = {1:"Equipa 1", 2:"Equipa 2", 3:"Equipa 3", 4:"Cunhado Solo"};
-            } else {
-                state = { names: {1:"Equipa 1", 2:"Equipa 2", 3:"Equipa 3", 4:"Cunhado Solo"}, matches: {}, history: [] };
             }
             updateUI();
+        }, error => {
+            alert("A porta do Firebase está trancada!\n\nVai ao Firebase > Realtime Database > Rules, e muda o .read e .write para true.");
         });
 
         function updateTeams() {
@@ -261,9 +272,7 @@
 
         function updateUI() {
             if(isAdmin && document.activeElement && document.activeElement.tagName !== 'INPUT') {
-                for(let i=1; i<=4; i++) {
-                    document.getElementById(`t${i}`).value = state.names[i] || `Equipa ${i}`;
-                }
+                for(let i=1; i<=4; i++) document.getElementById(`t${i}`).value = state.names[i] || `Equipa ${i}`;
             }
             renderLeaderboard();
             renderGames();
@@ -284,8 +293,6 @@
                     for(let i=1; i<=4; i++) {
                         let pointsGained = m.pts ? (m.pts[i] || 0) : 0;
                         totals[i] += pointsGained;
-                        
-                        // O badge ganha-se com a pontuação base máxima (10) ou se duplicou com Joker (20)
                         if((pointsGained === 10 || pointsGained === 20) && m.pts[i] !== 0) {
                             if(!earnedBadges[i].includes(g.badge)) earnedBadges[i].push(g.badge);
                         }
@@ -369,7 +376,6 @@
 
             document.getElementById('modal_inputs').innerHTML = html;
             
-            // Filtrar Jokers que já foram gastos
             const usedJokers = state.history.map(hid => state.matches[hid] ? state.matches[hid].joker : "none").filter(j => j && j !== "none");
             let jHtml = '<option value="none">-- Ninguém --</option>';
             for(let i=1; i<=4; i++) {
