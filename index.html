@@ -74,7 +74,6 @@
         .game-type { font-size: 9px; color: var(--text-muted); text-transform: uppercase; font-family: 'Montserrat'; font-weight: 700; margin-top: 2px; }
         .joker-used-indicator { font-size: 9px; color: var(--joker); font-weight: 900; margin-left: 5px; }
         
-        /* O estilo corrigido do botão Lançar */
         .btn-manage { background: #ffffff; color: var(--secondary); border: 2px solid var(--secondary); padding: 8px 16px; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 11px; cursor: pointer; font-weight: 800; text-transform: uppercase; transition: all 0.2s ease; outline: none; -webkit-appearance: none; }
         .btn-manage:hover { background: var(--secondary); color: #ffffff; }
         .btn-manage:active { transform: scale(0.96); }
@@ -189,7 +188,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <script>
-        // AS TUAS CHAVES E O TEU URL REAL
         const firebaseConfig = {
             apiKey: "AIzaSyDvR4SLU4hPnNu2mHYtaNV2RKc0F8SE1-w",
             authDomain: "alentiadas-de-verao-2026.firebaseapp.com",
@@ -224,7 +222,8 @@
             ]},
             { id: "sombra", name: "🪑 Sentados à Sombra", min: 1, games: [
                 { id: "uno", name: "Campeonato de Uno", type: "pos", badge: "🃏 UNO com o UNIverso" },
-                { id: "abalone", name: "Abalone", type: "pos", badge: "⚪ Mestre das Esferas" }
+                { id: "abalone", name: "Abalone", type: "pos", badge: "⚪ Mestre das Esferas" },
+                { id: "monopolio", name: "Monopólio", type: "pos", badge: "🎩 Magnata do Latifúndio" }
             ]},
             { id: "patusca", name: "🧀 Patusca e Petisco", min: 1, games: [
                 { id: "chef", name: "Melhor Chef", type: "qual", badge: "🥩 Chef do Montado" },
