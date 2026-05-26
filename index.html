@@ -15,9 +15,9 @@
         :root {
             --bg-main: #f8fafc;
             --bg-card: #ffffff;
-            --primary: #ca8a04; /* Ocre */
-            --secondary: #1d4ed8; /* Azul Cobalto */
-            --accent: #15803d; /* Verde Oliveira */
+            --primary: #ca8a04;
+            --secondary: #1d4ed8;
+            --accent: #15803d;
             --text: #0f172a;
             --text-muted: #64748b;
             --border: #e2e8f0;
@@ -28,7 +28,6 @@
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         body { background: var(--bg-main); color: var(--text); font-family: 'Urbanist', sans-serif; max-width: 500px; margin: 0 auto; padding-bottom: 60px; }
 
-        /* Estilo Alentejo Light */
         header { 
             position: relative; background-color: #1e3a8a;
             background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80');
@@ -36,67 +35,65 @@
             padding: 60px 20px 40px; text-align: center; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 25px;
         }
-        header h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; color: #fff; font-size: 28px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
-        header .subtitle { font-size: 14px; color: #fde047; text-transform: uppercase; margin-top: 5px; font-family: 'Montserrat'; font-weight: 800; letter-spacing: 2px; }
+        header h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; color: #fff; font-size: 26px; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
+        header .subtitle { font-size: 13px; color: #fde047; text-transform: uppercase; margin-top: 5px; font-family: 'Montserrat'; font-weight: 800; letter-spacing: 2px; }
 
         .container { padding: 0 16px; }
         
-        /* Botões Navegação */
         .nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
         .btn-nav { padding: 14px; border-radius: 12px; border: none; font-family: 'Montserrat'; font-weight: 800; font-size: 11px; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .btn-blue { background: var(--secondary); color: white; }
         .btn-white { background: white; color: var(--text-muted); border: 1px solid var(--border); }
 
-        h2 { font-family: 'Montserrat', sans-serif; color: var(--secondary); font-size: 14px; margin: 30px 0 15px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; font-weight: 800; }
+        h2 { font-family: 'Montserrat', sans-serif; color: var(--secondary); font-size: 13px; margin: 25px 0 15px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; font-weight: 800; }
         h2::after { content: ''; flex-grow: 1; height: 2px; background: var(--border); }
 
         .card { background: var(--bg-card); border-radius: 20px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid var(--border); border-bottom: 4px solid var(--secondary); }
+        .card.admin-card { border-bottom-color: var(--primary); }
         
-        /* Sucesso Evento */
-        .success-box { border-bottom-color: var(--accent); }
         .progress-container { background: #e2e8f0; height: 12px; border-radius: 6px; margin-top: 10px; overflow: hidden; }
         .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.5s ease; }
 
-        /* Leaderboard */
         .leaderboard-table { width: 100%; border-collapse: collapse; }
-        .leaderboard-table td { padding: 16px 0; border-bottom: 1px solid var(--border); }
-        .rank { width: 45px; font-weight: 900; color: var(--secondary); font-family: 'Montserrat'; font-size: 20px; }
+        .leaderboard-table td { padding: 14px 0; border-bottom: 1px solid var(--border); }
+        .rank { width: 45px; font-weight: 900; color: var(--secondary); font-family: 'Montserrat'; font-size: 18px; }
         .team-info { display: flex; flex-direction: column; gap: 4px; }
-        .team-name { font-weight: 800; color: var(--text); font-size: 16px; }
-        .score { text-align: right; font-weight: 900; color: var(--accent); font-family: 'Montserrat'; font-size: 22px; }
+        .team-name { font-weight: 800; color: var(--text); font-size: 15px; }
+        .score { text-align: right; font-weight: 900; color: var(--accent); font-family: 'Montserrat'; font-size: 20px; }
         .badge-list { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
         .badge-item { background: #fef08a; color: #854d0e; font-size: 9px; font-family: 'Montserrat'; font-weight: 800; padding: 3px 6px; border-radius: 5px; border: 1px solid #fde047; }
         .joker-tag { background: #fce7f3; color: #9d174d; border-color: #fbcfe8; }
 
-        /* Categorias */
         .cat-card { margin-bottom: 25px; }
-        .cat-header { background: #f1f5f9; padding: 8px 15px; border-radius: 10px; font-family: 'Montserrat'; font-size: 12px; font-weight: 800; color: var(--primary); display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .cat-header { background: #f1f5f9; padding: 8px 15px; border-radius: 10px; font-family: 'Montserrat'; font-size: 11px; font-weight: 800; color: var(--primary); display: flex; justify-content: space-between; margin-bottom: 12px; text-transform: uppercase; }
         .game-row { display: flex; justify-content: space-between; align-items: center; background: white; padding: 15px; border-radius: 14px; margin-bottom: 8px; border: 1px solid var(--border); }
-        .game-name { font-size: 15px; font-weight: 800; color: var(--text); }
-        .game-type { font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-family: 'Montserrat'; font-weight: 700; margin-top: 2px; }
-        .joker-used-indicator { font-size: 10px; color: var(--joker); font-weight: 900; margin-left: 5px; }
+        .game-name { font-size: 14px; font-weight: 800; color: var(--text); }
+        .game-type { font-size: 9px; color: var(--text-muted); text-transform: uppercase; font-family: 'Montserrat'; font-weight: 700; margin-top: 2px; }
+        .joker-used-indicator { font-size: 9px; color: var(--joker); font-weight: 900; margin-left: 5px; }
 
-        /* Modal / Popups */
         .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(5px); z-index: 1000; padding: 20px; align-items: center; justify-content: center; }
         .modal { background: white; border-radius: 24px; padding: 25px; width: 100%; max-width: 450px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); border-bottom: 6px solid var(--secondary); max-height: 90vh; overflow-y: auto; }
-        .modal h3 { font-family: 'Montserrat'; color: var(--secondary); text-align: center; margin-bottom: 20px; text-transform: uppercase; font-size: 18px; }
+        .modal h3 { font-family: 'Montserrat'; color: var(--secondary); text-align: center; margin-bottom: 20px; text-transform: uppercase; font-size: 16px; }
         
         .score-input-row { display: flex; justify-content: space-between; align-items: center; background: #f8fafc; padding: 12px; border-radius: 12px; margin-bottom: 10px; border: 1px solid var(--border); }
-        .score-input-row span { font-weight: 800; font-size: 14px; }
-        .score-input-row select, .score-input-row input { padding: 10px; border-radius: 8px; border: 2px solid var(--border); font-family: inherit; font-weight: 700; outline: none; }
+        .score-input-row span { font-weight: 800; font-size: 13px; }
+        .score-input-row select, .score-input-row input { padding: 10px; border-radius: 8px; border: 2px solid var(--border); font-family: inherit; font-weight: 700; outline: none; font-size: 13px; }
 
         .btn-group { display: flex; gap: 10px; margin-top: 25px; }
-        .btn-action { flex: 1; padding: 15px; border-radius: 12px; border: none; font-family: 'Montserrat'; font-weight: 800; font-size: 13px; text-transform: uppercase; cursor: pointer; }
+        .btn-action { flex: 1; padding: 15px; border-radius: 12px; border: none; font-family: 'Montserrat'; font-weight: 800; font-size: 12px; text-transform: uppercase; cursor: pointer; }
         .btn-confirm { background: var(--secondary); color: white; }
         .btn-cancel { background: #e2e8f0; color: var(--text-muted); }
 
-        /* Cronómetro Admin */
         .timer-box { background: #fffbeb; border: 1px solid #fde68a; padding: 15px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
         .timer-display { font-family: 'Montserrat'; font-size: 32px; font-weight: 900; color: var(--primary); margin: 10px 0; }
 
-        /* Admin Controls */
         .admin-only { display: none; }
         body.admin-mode .admin-only { display: block; }
+        
+        .team-inputs { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .team-row-input { display: flex; align-items: center; gap: 10px; }
+        .team-row-input label { font-family: 'Montserrat'; font-size: 11px; color: var(--text-muted); width: 85px; font-weight: 700; text-transform: uppercase; }
+        .team-row-input input { flex-grow: 1; background: #f8fafc; border: 1px solid var(--border); color: var(--text); padding: 11px; border-radius: 8px; font-family: inherit; font-weight: 700; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -114,7 +111,7 @@
             <button class="btn-nav btn-white admin-only" onclick="resetTourney()">🗑️ Reset</button>
         </div>
 
-        <div class="card success-box">
+        <div class="card" style="border-bottom-color: var(--accent);">
             <h3 style="font-family:'Montserrat'; font-size:11px; color:var(--accent); text-transform:uppercase;">Meta de Sucesso das Alentíadas</h3>
             <div id="success_label" style="font-size:14px; font-weight:800; margin-top:5px;">Categorias: 0 / 5</div>
             <div class="progress-container"><div id="success_bar" class="progress-fill"></div></div>
@@ -131,7 +128,7 @@
             </div>
         </div>
 
-        <div class="card admin-only" style="border-bottom-color: var(--primary);">
+        <div class="card admin-only admin-card">
             <h3 style="font-family:'Montserrat'; font-size:11px; text-transform:uppercase; color:var(--primary); margin-bottom:15px;">Nomes das Equipas</h3>
             <div class="team-inputs">
                 <div class="team-row-input"><label>Equipa 1</label><input type="text" id="t1" onchange="updateTeams()"></div>
@@ -181,25 +178,25 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <script>
-        // 1. CONFIGURAÇÃO FIREBASE
-       const firebaseConfig = {
-  apiKey: "AIzaSyDvR4SLU4hPnNu2mHYtaNV2RKc0F8SE1-w",
-  authDomain: "alentiadas-de-verao-2026.firebaseapp.com",
-  projectId: "alentiadas-de-verao-2026",
-  storageBucket: "alentiadas-de-verao-2026.firebasestorage.app",
-  messagingSenderId: "837106747078",
-  appId: "1:837106747078:web:26756f7db700acfb1ef9c7",
-  measurementId: "G-W68D8RZWGN"
+        // INTEGRAÇÃO DAS TUAS CHAVES REAIS DO FIREBASE
+        const firebaseConfig = {
+            apiKey: "AIzaSyDvR4SLU4hPnNu2mHYtaNV2RKc0F8SE1-w",
+            authDomain: "alentiadas-de-verao-2026.firebaseapp.com",
+            databaseURL: "https://alentiadas-de-verao-2026-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "alentiadas-de-verao-2026",
+            storageBucket: "alentiadas-de-verao-2026.firebasestorage.app",
+            messagingSenderId: "837106747078",
+            appId: "1:837106747078:web:26756f7db700acfb1ef9c7",
+            measurementId: "G-W68D8RZWGN"
         };
         
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
 
-        // 2. MODALIDADES
         const cats = [
             { id: "alem", name: "📸 Alembraduras", min: 2, games: [
                 { id: "piscina", name: "Saltos Piscina", type: "qual", badge: "💦 Graciosidade Líquida" },
-                { id: "sesta", name: "Doutorado na Sesta", type: "qual", badge: "💤 Mestre do Sono" },
+                { id: "sesta", name: "Concurso de Sestas", type: "qual", badge: "💤 Mestre do Sono" },
                 { id: "video", name: "Videoclip Low-Cost", type: "qual", badge: "🎬 Spielberg Alentejano" },
                 { id: "rap", name: "Rap de andar à unha", type: "qual", badge: "🎤 Slim Shady do Monte" },
                 { id: "prancha", name: "Saltos da Prancha", type: "qual", badge: "🦅 Ícaro do Guadiana" },
@@ -234,30 +231,39 @@
         let isAdmin = new URLSearchParams(window.location.search).get('admin') === 'alentejo2026';
         let activeMatchId = null;
         let countdown;
+        let chartInstance = null;
 
         if(isAdmin) document.body.classList.add('admin-mode');
 
+        // CORRIGIDO: Lógica robusta que inicializa se o Firebase retornar vazio
         db.ref('alentiadas2026').on('value', snap => {
             const val = snap.val();
             if(val) {
                 state = val;
                 if(!state.matches) state.matches = {};
                 if(!state.history) state.history = [];
+                if(!state.names) state.names = {1:"Equipa 1", 2:"Equipa 2", 3:"Equipa 3", 4:"Cunhado Solo"};
             } else {
-                // Se a base de dados for nova e estiver vazia, carrega a vista por defeito
                 state = { names: {1:"Equipa 1", 2:"Equipa 2", 3:"Equipa 3", 4:"Cunhado Solo"}, matches: {}, history: [] };
             }
-            updateUI(); // Esta linha tem de estar fora do 'if' para a app desenhar sempre o ecrã!
+            updateUI();
         });
 
         function updateTeams() {
-            const names = { 1: document.getElementById('t1').value, 2: document.getElementById('t2').value, 3: document.getElementById('t3').value, 4: document.getElementById('t4').value };
+            const names = { 
+                1: document.getElementById('t1').value || "Equipa 1", 
+                2: document.getElementById('t2').value || "Equipa 2", 
+                3: document.getElementById('t3').value || "Equipa 3", 
+                4: document.getElementById('t4').value || "Cunhado Solo" 
+            };
             db.ref('alentiadas2026/names').set(names);
         }
 
         function updateUI() {
-            if(isAdmin && document.activeElement.tagName !== 'INPUT') {
-                for(let i=1; i<=4; i++) document.getElementById(`t${i}`).value = state.names[i];
+            if(isAdmin && document.activeElement && document.activeElement.tagName !== 'INPUT') {
+                for(let i=1; i<=4; i++) {
+                    document.getElementById(`t${i}`).value = state.names[i] || `Equipa ${i}`;
+                }
             }
             renderLeaderboard();
             renderGames();
@@ -276,21 +282,28 @@
                 const g = allGames.find(x => x.id === mId);
                 if(m && g) {
                     for(let i=1; i<=4; i++) {
-                        totals[i] += m.pts[i];
-                        if(m.pts[i] >= 10) earnedBadges[i].push(g.badge);
+                        let pointsGained = m.pts ? (m.pts[i] || 0) : 0;
+                        totals[i] += pointsGained;
+                        
+                        // O badge ganha-se com a pontuação base máxima (10) ou se duplicou com Joker (20)
+                        if((pointsGained === 10 || pointsGained === 20) && m.pts[i] !== 0) {
+                            if(!earnedBadges[i].includes(g.badge)) earnedBadges[i].push(g.badge);
+                        }
                     }
-                    if(m.joker !== "none") jokers[m.joker] = true;
+                    if(m.joker && m.joker !== "none") jokers[m.joker] = true;
                     
                     const category = cats.find(c => c.games.some(x => x.id === mId));
-                    const doneInCat = state.history.filter(id => category.games.some(x => x.id === id)).length;
-                    if(doneInCat >= category.min) catsDone.add(category.id);
+                    if(category) {
+                        const doneInCat = state.history.filter(id => category.games.some(x => x.id === id)).length;
+                        if(doneInCat >= category.min) catsDone.add(category.id);
+                    }
                 }
             });
 
             document.getElementById('success_label').innerText = `Categorias Cumpridas: ${catsDone.size} / 5`;
             document.getElementById('success_bar').style.width = (catsDone.size / 5 * 100) + "%";
 
-            let sorted = [1,2,3,4].map(id => ({ id, name: state.names[id], score: totals[id], badges: earnedBadges[id], joker: jokers[id] }))
+            let sorted = [1,2,3,4].map(id => ({ id, name: state.names[id] || `Equipa ${id}`, score: totals[id], badges: earnedBadges[id], joker: jokers[id] }))
                                  .sort((a,b) => b.score - a.score);
 
             document.getElementById('leaderboard_body').innerHTML = sorted.map((t, i) => `
@@ -305,7 +318,7 @@
                             </div>
                         </div>
                     </td>
-                    <td class="score">${t.score} <small style="font-size:10px; font-weight:normal; color:var(--text-muted);">pts</small></td>
+                    <td class="score">${t.score} <small style="font-size:11px; font-weight:normal; color:var(--text-muted);">pts</small></td>
                 </tr>
             `).join('');
         }
@@ -318,10 +331,13 @@
                     ${c.games.map(g => {
                         const m = state.matches[g.id];
                         const done = !!m;
-                        const jokerHtml = (done && m.joker !== "none") ? `<span class="joker-used-indicator">🃏 Joker ${state.names[m.joker]}</span>` : '';
+                        const jokerHtml = (done && m.joker && m.joker !== "none") ? `<span class="joker-used-indicator">🃏 Joker ${state.names[m.joker]}</span>` : '';
                         return `
                             <div class="game-row">
-                                <div><div class="game-name">${g.name} ${jokerHtml}</div><div class="game-type">${g.type}</div></div>
+                                <div>
+                                    <div class="game-name">${g.name} ${jokerHtml}</div>
+                                    <div class="game-type">${g.type === 'qual' ? 'Notas Júri' : g.type === 'kart' ? 'Média Karts' : 'Posições'}</div>
+                                </div>
                                 <div>${done ? '<span class="status-done">✓ FEITO</span>' : `<button class="btn-manage admin-only" onclick="openScore('${g.id}')">Lançar</button>`}</div>
                             </div>
                         `;
@@ -339,22 +355,22 @@
             if(g.type === 'pos') {
                 for(let i=1; i<=4; i++) html += `<div class="score-input-row"><span>${state.names[i]}</span><select id="s_${i}"><option value="1">1º Lugar</option><option value="2">2º Lugar</option><option value="3">3º Lugar</option><option value="4">4º Lugar</option></select></div>`;
             } else if(g.type === 'qual') {
-                for(let i=1; i<=4; i++) html += `<div class="score-input-row"><span>${state.names[i]}</span><input type="number" id="v_${i}" step="0.1" value="7.0"></div>`;
+                for(let i=1; i<=4; i++) html += `<div class="score-input-row"><span>${state.names[i]}</span><input type="number" id="v_${i}" step="0.1" value="7.0" min="0" max="10"></div>`;
             } else if(g.type === 'kart') {
-                html += '<p style="font-size:10px; color:red; margin-bottom:10px;">Indique o lugar (1-7) de cada piloto na pista.</p>';
-                html += `<div class="score-input-row"><span>${state.names[1]} (A)</span><input type="number" id="k1a" value="1"></div>`;
-                html += `<div class="score-input-row"><span>${state.names[1]} (B)</span><input type="number" id="k1b" value="7"></div>`;
-                html += `<div class="score-input-row"><span>${state.names[2]} (A)</span><input type="number" id="k2a" value="2"></div>`;
-                html += `<div class="score-input-row"><span>${state.names[2]} (B)</span><input type="number" id="k2b" value="6"></div>`;
-                html += `<div class="score-input-row"><span>${state.names[3]} (A)</span><input type="number" id="k3a" value="3"></div>`;
-                html += `<div class="score-input-row"><span>${state.names[3]} (B)</span><input type="number" id="k3b" value="5"></div>`;
-                html += `<div class="score-input-row"><span>${state.names[4]} (Solo)</span><input type="number" id="k4" value="4"></div>`;
+                html += '<p style="font-size:11px; color:var(--danger); margin-bottom:12px; font-weight:700;">Indica a posição final na pista (1º ao 7º lugar):</p>';
+                html += `<div class="score-input-row"><span>${state.names[1]} (Piloto A)</span><input type="number" id="k1a" value="1" min="1" max="7"></div>`;
+                html += `<div class="score-input-row"><span>${state.names[1]} (Piloto B)</span><input type="number" id="k1b" value="7" min="1" max="7"></div>`;
+                html += `<div class="score-input-row"><span>${state.names[2]} (Piloto A)</span><input type="number" id="k2a" value="4" min="1" max="7"></div>`;
+                html += `<div class="score-input-row"><span>${state.names[2]} (Piloto B)</span><input type="number" id="k2b" value="6" min="1" max="7"></div>`;
+                html += `<div class="score-input-row"><span>${state.names[3]} (Piloto A)</span><input type="number" id="k3a" value="3" min="1" max="7"></div>`;
+                html += `<div class="score-input-row"><span>${state.names[3]} (Piloto B)</span><input type="number" id="k3b" value="5" min="1" max="7"></div>`;
+                html += `<div class="score-input-row"><span><strong>${state.names[4]} (Solo)</strong></span><input type="number" id="k4" value="2" min="1" max="7"></div>`;
             }
 
             document.getElementById('modal_inputs').innerHTML = html;
             
-            // Gerar lista de Jokers disponíveis
-            const usedJokers = state.history.map(hid => state.matches[hid].joker).filter(j => j !== "none");
+            // Filtrar Jokers que já foram gastos
+            const usedJokers = state.history.map(hid => state.matches[hid] ? state.matches[hid].joker : "none").filter(j => j && j !== "none");
             let jHtml = '<option value="none">-- Ninguém --</option>';
             for(let i=1; i<=4; i++) {
                 if(!usedJokers.includes(String(i))) jHtml += `<option value="${i}">${state.names[i]}</option>`;
@@ -370,13 +386,22 @@
             if(g.type === 'pos') {
                 for(let i=1; i<=4; i++) finalPts[i] = ptsMap[document.getElementById(`s_${i}`).value];
             } else if(g.type === 'qual') {
-                let r = [1,2,3,4].map(id => ({ id, val: parseFloat(document.getElementById(`v_${id}`).value) })).sort((a,b) => b.val - a.val);
+                let r = [1,2,3,4].map(id => ({ id, val: parseFloat(document.getElementById(`v_${id}`).value) || 0 })).sort((a,b) => b.val - a.val);
                 r.forEach((t, i) => finalPts[t.id] = ptsMap[i+1]);
             } else if(g.type === 'kart') {
-                let a1 = (kartMap[document.getElementById('k1a').value] + kartMap[document.getElementById('k1b').value])/2;
-                let a2 = (kartMap[document.getElementById('k2a').value] + kartMap[document.getElementById('k2b').value])/2;
-                let a3 = (kartMap[document.getElementById('k3a').value] + kartMap[document.getElementById('k3b').value])/2;
-                let a4 = kartMap[document.getElementById('k4').value];
+                let p1a = parseInt(document.getElementById('k1a').value) || 7;
+                let p1b = parseInt(document.getElementById('k1b').value) || 7;
+                let p2a = parseInt(document.getElementById('k2a').value) || 7;
+                let p2b = parseInt(document.getElementById('k2b').value) || 7;
+                let p3a = parseInt(document.getElementById('k3a').value) || 7;
+                let p3b = parseInt(document.getElementById('k3b').value) || 7;
+                let p4  = parseInt(document.getElementById('k4').value) || 7;
+
+                let a1 = ((kartMap[p1a] || 2) + (kartMap[p1b] || 2)) / 2;
+                let a2 = ((kartMap[p2a] || 2) + (kartMap[p2b] || 2)) / 2;
+                let a3 = ((kartMap[p3a] || 2) + (kartMap[p3b] || 2)) / 2;
+                let a4 = kartMap[p4] || 2;
+                
                 let r = [{id:1, v:a1}, {id:2, v:a2}, {id:3, v:a3}, {id:4, v:a4}].sort((a,b) => b.v - a.v);
                 r.forEach((t, i) => finalPts[t.id] = ptsMap[i+1]);
             }
@@ -384,11 +409,12 @@
             const joker = document.getElementById('joker_picker').value;
             if(joker !== "none") finalPts[joker] *= 2;
 
-            db.ref(`alentiadas2026/matches/${activeMatchId}`).set({ pts: finalPts, joker });
-            if(!state.history.includes(activeMatchId)) {
-                const newHistory = [...state.history, activeMatchId];
-                db.ref(`alentiadas2026/history`).set(newHistory);
-            }
+            firebase.database().ref(`alentiadas2026/matches/${activeMatchId}`).set({ pts: finalPts, joker: joker }).then(() => {
+                if(!state.history.includes(activeMatchId)) {
+                    const newHistory = [...state.history, activeMatchId];
+                    firebase.database().ref(`alentiadas2026/history`).set(newHistory);
+                }
+            });
             closeModal();
         }
 
@@ -402,6 +428,7 @@
                 t--;
             }, 1000);
         }
+        
         function stopTimer() { clearInterval(countdown); document.getElementById('timer_val').innerText = "00:00"; }
         function closeModal() { document.getElementById('modal_score').style.display = 'none'; }
 
@@ -424,31 +451,36 @@
             const allGames = cats.flatMap(c => c.games);
             state.history.forEach(mid => {
                 const m = state.matches[mid];
-                labels.push(allGames.find(x => x.id === mid).name);
-                for(let i=1; i<=4; i++) {
-                    running[i] += m.pts[i];
-                    d[i].push(running[i]);
+                const gameFound = allGames.find(x => x.id === mid);
+                if(m && m.pts && gameFound) {
+                    labels.push(gameFound.name);
+                    for(let i=1; i<=4; i++) {
+                        running[i] += (m.pts[i] || 0);
+                        d[i].push(running[i]);
+                    }
                 }
             });
 
-            new Chart(ctx, {
+            if(chartInstance) chartInstance.destroy();
+
+            chartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: labels,
                     datasets: [
-                        { label: state.names[1], data: d[1], borderColor: '#1d4ed8', tension: 0.2 },
-                        { label: state.names[2], data: d[2], borderColor: '#ca8a04', tension: 0.2 },
-                        { label: state.names[3], data: d[3], borderColor: '#15803d', tension: 0.2 },
-                        { label: state.names[4], data: d[4], borderColor: '#db2777', tension: 0.2 }
+                        { label: state.names[1], data: d[1], borderColor: '#1d4ed8', tension: 0.2, fill: false },
+                        { label: state.names[2], data: d[2], borderColor: '#ca8a04', tension: 0.2, fill: false },
+                        { label: state.names[3], data: d[3], borderColor: '#15803d', tension: 0.2, fill: false },
+                        { label: state.names[4], data: d[4], borderColor: '#db2777', tension: 0.2, fill: false }
                     ]
                 },
-                options: { maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
+                options: { maintainAspectRatio: false, responsive: true, scales: { y: { beginAtZero: true } } }
             });
         }
 
         function resetTourney() {
-            if(confirm("Deseja apagar TODOS os dados do torneio?")) {
-                db.ref('alentiadas2026').set({
+            if(confirm("Deseja apagar TODOS os dados e recomeçar as Alentíadas?")) {
+                firebase.database().ref('alentiadas2026').set({
                     names: {1:"Equipa 1", 2:"Equipa 2", 3:"Equipa 3", 4:"Cunhado Solo"},
                     matches: {},
                     history: []
