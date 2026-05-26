@@ -243,8 +243,11 @@
                 state = val;
                 if(!state.matches) state.matches = {};
                 if(!state.history) state.history = [];
-                updateUI();
+            } else {
+                // Se a base de dados for nova e estiver vazia, carrega a vista por defeito
+                state = { names: {1:"Equipa 1", 2:"Equipa 2", 3:"Equipa 3", 4:"Cunhado Solo"}, matches: {}, history: [] };
             }
+            updateUI(); // Esta linha tem de estar fora do 'if' para a app desenhar sempre o ecrã!
         });
 
         function updateTeams() {
